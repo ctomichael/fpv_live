@@ -1,0 +1,16 @@
+package dji.internal.mission.abstraction.waypoint;
+
+import dji.internal.mission.MissionResultPicker;
+import dji.midware.data.model.P3.DataFlycWayPointMissionPauseOrResume;
+
+final /* synthetic */ class WaypointMissionAbstraction$$Lambda$2 implements MissionResultPicker {
+    private final DataFlycWayPointMissionPauseOrResume arg$1;
+
+    WaypointMissionAbstraction$$Lambda$2(DataFlycWayPointMissionPauseOrResume dataFlycWayPointMissionPauseOrResume) {
+        this.arg$1 = dataFlycWayPointMissionPauseOrResume;
+    }
+
+    public int getMissionActionResult() {
+        return this.arg$1.getResult();
+    }
+}

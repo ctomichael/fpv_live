@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/arrowIv" android:background="@drawable/fpv_newbie_guide_bubble_arrow_left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:rotation="180"/>
+    <TextView android:textSize="@dimen/s_15_dp" android:textColor="@color/black" android:gravity="center" android:id="@+id/contentTv" android:background="@drawable/bg_guide_bubble_content" android:paddingLeft="@dimen/s_8_dp" android:paddingTop="@dimen/s_4_dp" android:paddingRight="@dimen/s_8_dp" android:paddingBottom="@dimen/s_4_dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+</merge>

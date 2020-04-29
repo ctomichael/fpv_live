@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <android.support.v7.widget.RecyclerView android:id="@+id/fpv_widget_wheel_recycle" android:fadingEdgeLength="@dimen/s_100_dp" android:layout_width="match_parent" android:layout_height="match_parent" android:requiresFadingEdge="horizontal"/>
+    <ImageView android:id="@+id/fpv_widget_wheel_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/fpv_camera_menu_mode_select_arrow" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:rotation="180"/>
+    <View android:id="@+id/fpv_widget_wheel_mask" android:focusable="true" android:visibility="gone" android:clickable="true" android:layout_width="match_parent" android:layout_height="match_parent"/>
+</merge>

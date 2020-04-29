@@ -1,0 +1,120 @@
+{
+  "list": [
+    {
+      "id": "C1",
+      "func": "Other"
+    },
+    {
+      "id": "C2",
+      "func": "Other"
+    },
+    {
+      "id": "C3",
+      "func": "CenterMetering"
+    },
+    {
+      "id": "C4",
+      "func": "AeLock"
+    },
+    {
+      "id": "BA",
+      "func": "CloseTips"
+    },
+    {
+      "id": "BB",
+      "func": "ReviewWarning"
+    },
+    {
+      "id": "BC",
+      "func": "SwitchFrequence"
+    },
+    {
+      "id": "BD",
+      "func": "Transformation"
+    },
+    {
+      "id": "BE",
+      "func": "CameraSetting"
+    },
+    {
+      "id": "BF",
+      "func": "SmartGear"
+    },
+    {
+      "id": "BG",
+      "func": "AFMF"
+    },
+    {
+      "id": "BH",
+      "func": "CenterFocus"
+    },
+    {
+      "id": "SET",
+      "func": "EV"
+    },
+    {
+      "id": "SHUT",
+      "func": "SHUT"
+    },
+    {
+      "id": "APER",
+      "func": "IRIS"
+    },
+    {
+      "id": "ISO",
+      "func": "ISO"
+    },
+    {
+      "id": "Menu",
+      "func": "QuickSetting"
+    },
+    {
+      "id": "TD",
+      "func": "Focus"
+    },
+    {
+      "id": "LW",
+      "func": "GimbalPitch"
+    },
+    {
+      "id": "RW",
+      "func": "GimbalYaw"
+    },
+    {
+      "id": "LD",
+      "func": "Other"
+    },
+    {
+      "id": "RD",
+      "func": "Other"
+    },
+    {
+      "id": "CF",
+      "func": "UnDefined"
+    },
+    {
+      "id": "FlightMode",
+      "func": "UnDefined"
+    },
+    {
+      "id": "Focus",
+      "func": "UnDefined"
+    },
+    {
+      "id": "Photo",
+      "func": "UnDefined"
+    },
+    {
+      "id": "Power",
+      "func": "UnDefined"
+    },
+    {
+      "id": "Record",
+      "func": "UnDefined"
+    },
+    {
+      "id": "Stop",
+      "func": "UnDefined"
+    }
+  ]
+}

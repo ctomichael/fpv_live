@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/fmd_root_view" android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.dji.findmydrone.ui.view.right.camera.CameraLiveView android:id="@+id/lcd_camera_liveview" android:background="#000000" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <ImageView android:id="@+id/relay_iv" android:paddingTop="@dimen/s_20_dp" android:paddingBottom="@dimen/s_20_dp" android:layout_width="@dimen/s_148_dp" android:layout_height="@dimen/s_60_dp" android:src="@drawable/relay_fpv_goggles_feed" android:paddingStart="@dimen/s_16_dp" android:paddingEnd="@dimen/s_16_dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintStart_toStartOf="0"/>
+    <TextView android:textSize="@dimen/s_40_dp" android:textColor="@color/white" android:id="@+id/hint" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/lcd_pause_hint" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0"/>
+</android.support.constraint.ConstraintLayout>

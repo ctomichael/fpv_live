@@ -1,0 +1,168 @@
+package dji.event3.midware;
+
+import dji.log.DJISendPackWatcher;
+import dji.log.LogDialog;
+import dji.logic.Handheld.DJIHandheldHelper;
+import dji.logic.album.manager.h1.DJIMp4StreamLoader;
+import dji.logic.album.manager.litchis.DJIFileListLoader;
+import dji.logic.album.manager.litchis.DJIFileLoader;
+import dji.logic.album.manager.litchis.DJIFileNailLoader;
+import dji.logic.album.manager.litchis.DJIFileStreamLoader;
+import dji.logic.album.manager.litchis.DJILoader;
+import dji.logic.album.manager.litchis.DJIStreamLoader;
+import dji.logic.camera.DJILogicCameraInfo;
+import dji.logic.manager.DJIUSBWifiSwitchManager;
+import dji.logic.mc.DJILogicHomePoint;
+import dji.logic.mc.DJIMcHelper;
+import dji.logic.ofdm.DJILogicMaxMcs;
+import dji.logic.vision.DJITrajectoryHelper;
+import dji.logic.vision.DJIVisionHelper;
+import dji.logic.wifi.DJIWifiHelper;
+import dji.midware.aoabridge.AoaController;
+import dji.midware.aoabridge.AppClient;
+import dji.midware.aoabridge.ProxyEventServer;
+import dji.midware.ar.ArDrawFlyController;
+import dji.midware.ar.ArPathController;
+import dji.midware.ble.BLE;
+import dji.midware.component.DJIComponentManager;
+import dji.midware.component.battery.DJIBatteryDetectHelper;
+import dji.midware.component.rc.DJIRcDetectHelper;
+import dji.midware.data.config.P3.ProductType;
+import dji.midware.data.manager.Dpad.DJIScreenManager;
+import dji.midware.data.manager.P3.DJIProductManager;
+import dji.midware.data.manager.P3.DJIProductSupportModel;
+import dji.midware.data.manager.P3.DJIVideoEvent;
+import dji.midware.data.manager.P3.DataBaseCenter;
+import dji.midware.data.manager.P3.DataCameraEvent;
+import dji.midware.data.manager.P3.DataEvent;
+import dji.midware.data.manager.P3.ServiceManager;
+import dji.midware.data.model.P3.DataCameraGetPushLog;
+import dji.midware.data.model.P3.DataCameraGetPushPlayBackParams;
+import dji.midware.data.model.P3.DataCameraGetPushShotParams;
+import dji.midware.data.model.P3.DataCameraGetPushStateInfo;
+import dji.midware.data.model.P3.DataCameraGetVideoParams;
+import dji.midware.data.model.P3.DataCenterGetPushLog;
+import dji.midware.data.model.P3.DataCommonTransferFileData;
+import dji.midware.data.model.P3.DataDm368GetPushStatus;
+import dji.midware.data.model.P3.DataEyeGetPushUAVState;
+import dji.midware.data.model.P3.DataEyeObjectDetectionPushInfo;
+import dji.midware.data.model.P3.DataFlycGetPushLog;
+import dji.midware.data.model.P3.DataGetPushPayloadStatus;
+import dji.midware.data.model.P3.DataGimbalGetPushLog;
+import dji.midware.data.model.P3.DataGimbalGetPushType;
+import dji.midware.data.model.P3.DataOsdGetPushCommon;
+import dji.midware.data.model.P3.DataOsdGetPushConfig;
+import dji.midware.data.model.P3.DataOsdGetPushHome;
+import dji.midware.data.model.P3.DataOsdGetPushLog;
+import dji.midware.data.model.P3.DataOsdGetPushMaxMcs;
+import dji.midware.data.model.P3.DataOsdGetPushPowerStatus;
+import dji.midware.data.model.P3.DataOsdGetPushSdrLinkMode;
+import dji.midware.data.model.P3.DataRcGetPushFlowControl;
+import dji.midware.data.model.P3.DataRcGetPushLog;
+import dji.midware.data.model.P3.DataRcHandShake;
+import dji.midware.data.model.base.DJICameraDataBase;
+import dji.midware.data.model.base.DJIOsdDataBase;
+import dji.midware.data.model.extension.DataOsdConfigEx;
+import dji.midware.data.model.litchis.DataCameraFileSystemAbort;
+import dji.midware.data.model.litchis.DataCameraFileSystemFileData;
+import dji.midware.data.model.litchis.DataCameraFileSystemListInfo;
+import dji.midware.data.model.litchis.DataCameraFileSystemPush;
+import dji.midware.data.model.litchis.DataCameraFileSystemStreamData;
+import dji.midware.link.DJILinkModeController;
+import dji.midware.link.DJILinkType;
+import dji.midware.media.HD.DJIClipFileLoader;
+import dji.midware.media.HD.DJIClipInfoListLoader;
+import dji.midware.media.SmoothFilter;
+import dji.midware.media.external.DJIExternalStorageController;
+import dji.midware.media.metadata.VideoRecordInfoBuild;
+import dji.midware.media.newframing.DJILiveviewRenderController;
+import dji.midware.media.newframing.DJIVideoHevcControl;
+import dji.midware.media.player.DJIMediaPlayerKumquat;
+import dji.midware.media.record.RecorderBase;
+import dji.midware.media.record.RecorderInterface;
+import dji.midware.media.record.RecorderManager;
+import dji.midware.media.transcode.fullframe.FullFrameHardwareTranscoder;
+import dji.midware.transfer.base.FileTransferTask;
+import dji.midware.upgradeComponent.DJIUpgradeComponentManager;
+import dji.midware.usb.P3.AoaReportHelper;
+import dji.midware.usb.P3.DJIUsbAccessoryReceiver;
+import dji.midware.usb.P3.LB2VideoController;
+import dji.midware.wifi.DJIMultiNetworkMgr;
+import dji.publics.DJIObject.DJICrashHandler;
+import java.util.HashMap;
+import java.util.Map;
+import org.greenrobot.eventbus.ThreadMode;
+import org.greenrobot.eventbus.meta.SimpleSubscriberInfo;
+import org.greenrobot.eventbus.meta.SubscriberInfo;
+import org.greenrobot.eventbus.meta.SubscriberInfoIndex;
+import org.greenrobot.eventbus.meta.SubscriberMethodInfo;
+
+public class DJIEventBusIndex implements SubscriberInfoIndex {
+    private static final Map<Class<?>, SubscriberInfo> SUBSCRIBER_INDEX = new HashMap();
+
+    static {
+        putIndex(new SimpleSubscriberInfo(SmoothFilter.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3MainThread", DataCameraGetPushStateInfo.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJITrajectoryHelper.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJILinkModeController.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataOsdGetPushSdrLinkMode.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIMediaPlayerKumquat.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetPushPlayBackParams.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIComponentManager.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DJILinkType.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DJIRcDetectHelper.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataGimbalGetPushType.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetPushStateInfo.Event.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataGetPushPayloadStatus.PayloadNeedReloadEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", BLE.BLEEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DJIBatteryDetectHelper.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(RecorderBase.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetPushStateInfo.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", RecorderManager.Service_Action.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DJIExternalStorageController.ExternalStorageEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIProductSupportModel.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetPushStateInfo.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataOsdGetPushCommon.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", ProductType.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DJIProductManager.DJIProductRcEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIOsdDataBase.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIMcHelper.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataOsdGetPushCommon.class, ThreadMode.ASYNC), new SubscriberMethodInfo("onEvent3BackgroundThread", ProductType.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(AoaController.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", AppClient.Status.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJICameraDataBase.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIHandheldHelper.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(LB2VideoController.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataDm368GetPushStatus.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataOsdConfigEx.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", ProductType.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(FullFrameHardwareTranscoder.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DJIVideoEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(ServiceManager.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DJICrashHandler.DJICrashEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetPushStateInfo.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIClipInfoListLoader.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemListInfo.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemPush.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJILiveviewRenderController.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetPushStateInfo.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetPushShotParams.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(AoaReportHelper.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIProductManager.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DJILinkType.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataOsdGetPushPowerStatus.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetPushStateInfo.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataOsdGetPushCommon.class, ThreadMode.ASYNC), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataGimbalGetPushType.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIScreenManager.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3MainThread", DataCameraEvent.class, ThreadMode.MAIN)}));
+        putIndex(new SimpleSubscriberInfo(DJIWifiHelper.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", ProductType.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(ArDrawFlyController.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataEyeGetPushUAVState.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DJITrajectoryHelper.TrajectoryEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(VideoRecordInfoBuild.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", ProductType.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetPushStateInfo.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetPushShotParams.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataOsdGetPushCommon.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetVideoParams.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIMultiNetworkMgr.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("handleDataEvent", DataEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIUpgradeComponentManager.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(ArPathController.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataEyeObjectDetectionPushInfo.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(FileTransferTask.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataRcGetPushFlowControl.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCommonTransferFileData.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DataOsdConfigEx.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataOsdGetPushConfig.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIStreamLoader.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemStreamData.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemPush.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIFileListLoader.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemListInfo.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemPush.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIUSBWifiSwitchManager.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIClipFileLoader.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemFileData.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemPush.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJILogicCameraInfo.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetPushStateInfo.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(AppClient.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", AoaController.RcEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(ProxyEventServer.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIVideoHevcControl.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetPushStateInfo.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJILoader.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemAbort.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(LogDialog.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraGetPushLog.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataOsdGetPushLog.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataFlycGetPushLog.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataRcGetPushLog.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCenterGetPushLog.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataGimbalGetPushLog.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIFileNailLoader.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemFileData.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemPush.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJILogicMaxMcs.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataOsdGetPushMaxMcs.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIRcDetectHelper.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataRcHandShake.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(RecorderInterface.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", RecorderManager.Service_Action.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIFileStreamLoader.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemFileData.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemPush.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJILogicHomePoint.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataOsdGetPushHome.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIUsbAccessoryReceiver.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", AoaController.RcEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIVisionHelper.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIBatteryDetectHelper.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJISendPackWatcher.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DataBaseCenter.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataEvent.class, ThreadMode.BACKGROUND, 100, false), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraEvent.class, ThreadMode.BACKGROUND, 100, false), new SubscriberMethodInfo("onEvent3BackgroundThread", DJILinkType.class, ThreadMode.BACKGROUND, 100, false)}));
+        putIndex(new SimpleSubscriberInfo(DJIMp4StreamLoader.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemFileData.class, ThreadMode.BACKGROUND)}));
+        putIndex(new SimpleSubscriberInfo(DJIFileLoader.class, true, new SubscriberMethodInfo[]{new SubscriberMethodInfo("onFileDataReceived", DataCameraFileSystemFileData.class, ThreadMode.BACKGROUND), new SubscriberMethodInfo("onEvent3BackgroundThread", DataCameraFileSystemPush.class, ThreadMode.BACKGROUND)}));
+    }
+
+    private static void putIndex(SubscriberInfo info) {
+        SUBSCRIBER_INDEX.put(info.getSubscriberClass(), info);
+    }
+
+    public SubscriberInfo getSubscriberInfo(Class<?> subscriberClass) {
+        SubscriberInfo info = SUBSCRIBER_INDEX.get(subscriberClass);
+        if (info != null) {
+            return info;
+        }
+        return null;
+    }
+}

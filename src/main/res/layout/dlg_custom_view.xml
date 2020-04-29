@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <include android:layout_gravity="center_horizontal" android:id="@+id/dlg_progress_round" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" layout="@layout/round_progress_view"/>
+    <include android:layout_gravity="center_horizontal" android:id="@+id/dlg_text_help" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/new_dialog_margin_left" android:layout_marginRight="@dimen/new_dialog_margin_left" layout="@layout/help_text_view"/>
+    <include android:layout_gravity="center_horizontal" android:id="@+id/dlg_checkbox_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/new_dialog_margin_left" android:layout_marginRight="@dimen/new_dialog_margin_left" android:layout_marginBottom="@dimen/d_5_dp" layout="@layout/check_text_view"/>
+    <include android:id="@+id/dlg_leftmenu_cb_ly" android:visibility="gone" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/slide_view_margin" android:layout_marginRight="@dimen/slide_view_margin" layout="@layout/slide_seekbar_view"/>
+</dji.publics.DJIUI.DJILinearLayout>

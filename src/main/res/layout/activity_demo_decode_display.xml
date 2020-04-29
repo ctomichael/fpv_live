@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Hello World" android:layout_centerInParent="true"/>
+    <SurfaceView android:id="@+id/decode_display_main_display_view" android:layout_width="match_parent" android:layout_height="match_parent"/>
+    <SurfaceView android:id="@+id/decode_display_second_display_view" android:visibility="invisible" android:layout_width="360dp" android:layout_height="240dp" android:layout_alignParentLeft="true" android:layout_alignParentBottom="true"/>
+    <LinearLayout android:gravity="right" android:orientation="vertical" android:background="#33000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true">
+        <Switch android:id="@+id/decode_display_second_display_sw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="双路码流" style="@style/VideoFeatureSwitch"/>
+        <Switch android:id="@+id/decode_display_over_exp_sw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="过曝提示" style="@style/VideoFeatureSwitch"/>
+        <Switch android:id="@+id/decode_display_peaking_focus_sw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="峰值对焦" style="@style/VideoFeatureSwitch"/>
+        <Switch android:id="@+id/decode_display_dlog_lut_sw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="DLog LUT" style="@style/VideoFeatureSwitch"/>
+    </LinearLayout>
+</RelativeLayout>

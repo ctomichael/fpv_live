@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:id="@+id/longan_pop_warning_ly" android:background="@drawable/camera_radius_bg" android:padding="20dp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="170dp" android:layout_centerInParent="true">
+        <ImageView android:layout_gravity="center_horizontal" android:id="@+id/longan_pop_warn_iv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="centerInside" android:minWidth="70dp" android:minHeight="70dp"/>
+        <TextView android:textSize="16dp" android:textColor="@android:color/white" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@+id/longan_pop_warn_tv" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="5dp"/>
+    </LinearLayout>
+</RelativeLayout>

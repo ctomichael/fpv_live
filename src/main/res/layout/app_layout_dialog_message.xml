@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dji.widget2.dialog.content.standard.view.MessageView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/s_24_dp" android:layout_marginBottom="@dimen/s_24_dp">
+        <ImageView android:layout_gravity="center" android:id="@+id/iv_icon" android:layout_width="@dimen/s_30_dp" android:layout_height="@dimen/s_30_dp" android:layout_marginBottom="@dimen/s_8_dp" android:scaleType="center"/>
+        <TextView android:textSize="@dimen/s_15_dp" android:textStyle="bold" android:textColor="@color/black_100" android:gravity="center" android:id="@+id/tv_main" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/s_16_dp" android:paddingEnd="@dimen/s_16_dp"/>
+        <TextView android:textSize="@dimen/s_13_dp" android:textColor="@color/black_100" android:gravity="center" android:id="@+id/tv_second" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/s_12_dp" android:maxLines="10" android:paddingStart="@dimen/s_16_dp" android:paddingEnd="@dimen/s_16_dp"/>
+    </LinearLayout>
+</com.dji.widget2.dialog.content.standard.view.MessageView>

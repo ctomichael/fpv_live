@@ -1,0 +1,4 @@
+package dji.sdksharedlib.hardware.abstractions.flightcontroller.flightassistant;
+
+public class IntelligentFlightAssistantSparkAbstraction extends IntelligentFlightAssistantMavicProAbstraction {
+}

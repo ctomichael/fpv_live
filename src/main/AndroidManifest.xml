@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" android:compileSdkVersion="28" android:compileSdkVersionCodename="9" package="com.dji.relay" platformBuildVersionCode="28" platformBuildVersionName="9">
+    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="28"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false"/>
+    <uses-feature android:name="android.hardware.location"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.wifi"/>
+    <uses-feature android:glEsVersion="20000" android:required="true"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <application android:theme="@style/AppTheme" android:label="FPV Live" android:icon="@mipmap/ic_launcher" android:name="com.dji.findmydrone.ui.DebugApp" android:debuggable="true" android:testOnly="true" android:allowBackup="false" android:supportsRtl="true" android:appComponentFactory="android.support.v4.app.CoreComponentFactory">
+        <activity android:theme="@style/FindMyDroneRootTheme" android:name="com.dji.findmydrone.ui.FindMyDroneActivity" android:screenOrientation="sensorLandscape" android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:presentationTheme="@style/FindMyDroneRootTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name="com.dji.findmydrone.ui.FindMyDroneApplicationReceiver" android:enabled="true" android:exported="false">
+            <intent-filter>
+                <action android:name="com.dji.lifecycle.application"/>
+            </intent-filter>
+        </receiver>
+        <activity android:theme="@style/zxing_CaptureTheme" android:name="com.dji.scan.qr.CaptureActivity" android:clearTaskOnLaunch="true" android:stateNotNeeded="true" android:screenOrientation="sensorLandscape" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <service android:name="dji.dbox.upgrade.p4.statemachine.DJIUpgradeService" android:exported="false" android:stopWithTask="true"/>
+        <provider android:name="com.billy.cc.core.component.remote.RemoteProvider" android:exported="true" android:authorities="com.dji.relay.com.billy.cc.core.remote"/>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.billy.cc.core.component.remote.RemoteConnectionActivity" android:exported="true" android:taskAffinity="com.billy.cc.connection" android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="action.com.billy.cc.connection"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.dji.video.framing.demo.DemoFramingActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity android:theme="@style/Theme.Holo.NoActionBar.Fullscreen" android:name="com.dji.video.framing.demo.DemoDecodeDisplayActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:theme="@style/Theme.Holo.NoActionBar.Fullscreen" android:name="com.dji.video.framing.demo.DemoDisplayAoaVideoActivity" android:screenOrientation="sensorLandscape"/>
+        <activity android:name="com.dji.video.framing.MainTestActivity"/>
+        <activity android:name="dji.publics.jiobject.djicrashactivity" android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <provider android:name="android.support.v4.content.FileProvider" android:exported="false" android:multiprocess="true" android:authorities="com.dji.relay.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/file_paths"/>
+        </provider>
+        <activity android:theme="@style/Theme.Translucent.NoTitleBar" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:exported="false"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+        <service android:name="com.mapzen.android.lost.internal.FusedLocationProviderService" android:process=":lost"/>
+        <service android:name="com.mapzen.android.lost.internal.GeofencingIntentService">
+            <intent-filter>
+                <action android:name="com.mapzen.lost.action.ACTION_GEOFENCING_SERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.mapzen.android.lost.internal.DwellIntentService"/>
+        <activity android:theme="@style/runtime_permissions_PermissionActivity" android:name="com.dji.permission.PermissionActivity" android:launchMode="standard" android:configChanges="keyboardHidden|orientation|screenSize" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <provider android:name="com.mapbox.android.telemetry.provider.MapboxTelemetryInitProvider" android:exported="false" android:authorities="com.dji.relay.mapboxtelemetryinitprovider" android:initOrder="100"/>
+        <service android:name="com.mapbox.android.telemetry.crash.CrashReporterJobIntentService" android:permission="android.permission.BIND_JOB_SERVICE"/>
+    </application>
+</manifest>

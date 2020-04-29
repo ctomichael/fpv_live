@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="cirsw_half_height">16dp</dimen>
+    <dimen name="cirsw_height">32dp</dimen>
+    <dimen name="cirsw_stroke">5dp</dimen>
+    <dimen name="cirsw_text_padding">16dp</dimen>
+    <dimen name="cirsw_width">65dp</dimen>
+</resources>

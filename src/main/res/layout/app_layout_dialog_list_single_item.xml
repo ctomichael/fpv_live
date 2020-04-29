@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <android.support.v4.widget.Space android:id="@+id/space_1" android:layout_width="@dimen/s_16_dp" android:layout_height="match_parent"/>
+    <TextView android:textSize="@dimen/s_15_dp" android:textColor="@color/white_100" android:gravity="left|center_vertical|center_horizontal|center|start" android:id="@android:id/text1" android:paddingTop="@dimen/s_16_dp" android:paddingBottom="@dimen/s_16_dp" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"/>
+    <android.support.v4.widget.Space android:id="@+id/space_2" android:layout_width="@dimen/s_8_dp" android:layout_height="match_parent"/>
+    <CheckBox android:layout_gravity="center" android:id="@+id/checkbox" android:layout_width="@dimen/s_24_dp" android:layout_height="@dimen/s_24_dp" android:button="@drawable/app_dialog_single_checkbox_selector"/>
+    <android.support.v4.widget.Space android:id="@+id/space_3" android:layout_width="@dimen/s_16_dp" android:layout_height="match_parent"/>
+</LinearLayout>

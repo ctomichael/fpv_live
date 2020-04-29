@@ -1,0 +1,30 @@
+package com.mapbox.mapboxsdk.location;
+
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.support.annotation.NonNull;
+import android.view.animation.Interpolator;
+import java.util.List;
+
+class MapboxAnimatorSetProvider {
+    private static MapboxAnimatorSetProvider instance;
+
+    private MapboxAnimatorSetProvider() {
+    }
+
+    static MapboxAnimatorSetProvider getInstance() {
+        if (instance == null) {
+            instance = new MapboxAnimatorSetProvider();
+        }
+        return instance;
+    }
+
+    /* access modifiers changed from: package-private */
+    public void startAnimation(@NonNull List<Animator> animators, @NonNull Interpolator interpolator, long duration) {
+        AnimatorSet locationAnimatorSet = new AnimatorSet();
+        locationAnimatorSet.playTogether(animators);
+        locationAnimatorSet.setInterpolator(interpolator);
+        locationAnimatorSet.setDuration(duration);
+        locationAnimatorSet.start();
+    }
+}

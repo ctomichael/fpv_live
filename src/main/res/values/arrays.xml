@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="jazzy_effects">
+        <item>Standard</item>
+        <item>Tablet</item>
+        <item>CubeIn</item>
+        <item>CubeOut</item>
+        <item>FlipVertical</item>
+        <item>FlipHorizontal</item>
+        <item>Stack</item>
+        <item>ZoomIn</item>
+        <item>ZoomOut</item>
+        <item>RotateUp</item>
+        <item>RotateDown</item>
+        <item>Accordion</item>
+    </array>
+    <array name="setting_video_cache_space_limit_items">
+        <item>1G</item>
+        <item>2G</item>
+        <item>3G</item>
+        <item>4G</item>
+        <item>5G</item>
+        <item>6G</item>
+        <item>7G</item>
+        <item>8G</item>
+        <item>9G</item>
+        <item>10G</item>
+        <item>11G</item>
+        <item>12G</item>
+        <item>13G</item>
+        <item>14G</item>
+        <item>15G</item>
+        <item>16G</item>
+        <item>@string/setting_ui_general_videocache_size_no_limit</item>
+    </array>
+    <array name="setting_video_cache_space_limit_small_items">
+        <item>1G</item>
+        <item>2G</item>
+        <item>3G</item>
+        <item>4G</item>
+        <item>5G</item>
+        <item>6G</item>
+        <item>7G</item>
+        <item>8G</item>
+        <item>9G</item>
+        <item>10G</item>
+        <item>@string/setting_ui_general_videocache_size_no_limit</item>
+    </array>
+</resources>

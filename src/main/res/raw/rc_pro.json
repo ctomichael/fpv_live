@@ -1,0 +1,1499 @@
+{
+  "application": {},
+  "functions": [
+    {
+      "id": "CameraSetting",
+      "value": 0,
+      "zh_cn": "相机高级设置",
+      "en":"Camera Setting",
+      "function_class": 1
+    },
+    {
+      "id": "GimbalCenter",
+      "value": 1,
+      "zh_cn": "云台Yaw回中",
+      "function_class": 2
+    },
+    {
+      "id": "SwitchGimbalMode",
+      "value": 2,
+      "zh_cn": "云台跟随/fpv模式切换",
+      "en":"Gimbal Follow/Free Mode",
+      "function_class": 2
+    },
+    {
+      "id": "MapSwitch",
+      "value": 3,
+      "zh_cn": "fpv/地图切换",
+      "en":"Switch Map/FPV",
+      "function_class": 4
+    },
+    {
+      "id": "ClearRoute",
+      "value": 4,
+      "zh_cn": "清除航线",
+      "en":"Clear Flight Route",
+      "function_class": 4
+    },
+    {
+      "id": "Battery",
+      "value": 5,
+      "zh_cn": "显示电池信息",
+      "en":"Battery Info",
+      "function_class": 4
+    },
+    {
+      "id": "CenterMetering",
+      "value": 7,
+      "zh_cn": "相机中央测光",
+      "en":"Camera Center Metering",
+      "function_class": 1
+    },
+    {
+      "id": "AeLock",
+      "value": 8,
+      "zh_cn": "相机AE lock",
+      "en":"AE Lock/UnLock",
+      "function_class": 1
+    },
+    {
+      "id": "ForeArm",
+      "value": 9,
+      "zh_cn": "开关机臂灯",
+      "en":"Turn on/off Front LEDs",
+      "function_class": 6
+    },
+    {
+      "id": "Vision1",
+      "value": 10,
+      "zh_cn": "视觉功能1",
+      "function_class": 5
+    },
+    {
+      "id": "GimbalRecenter",
+      "value": 12,
+      "zh_cn": "fpv云台回中",
+      "function_class": 2
+    },
+    {
+      "id": "LiveViewExpand",
+      "value": 13,
+      "zh_cn": "live view expand",
+      "function_class": 4
+    },
+    {
+      "id": "QuickCircle",
+      "value": 14,
+      "zh_cn": "飞机quick circle",
+      "function_class": 3
+    },
+    {
+      "id": "Navigation",
+      "value": 15,
+      "zh_cn": "导航功能",
+      "function_class": 5
+    },
+    {
+      "id": "PlayBack",
+      "value": 16,
+      "zh_cn": "回放",
+      "en":"PlayBack",
+      "function_class": 1
+    },
+    {
+      "id": "CenterFocus",
+      "value": 17,
+      "zh_cn": "中央点对焦",
+      "en":"Center Focus",
+      "function_class": 1
+    },
+    {
+      "id": "Navigation1",
+      "value": 18,
+      "zh_cn": "导航功能1",
+      "function_class": 5
+    },
+    {
+      "id": "FixWing",
+      "value": 21,
+      "zh_cn": "固定翼控制",
+      "function_class": 3
+    },
+    {
+      "id": "GetGimbalControl",
+      "value": 23,
+      "zh_cn": "获取云台控制权",
+      "en":"Get Gimbal Control",
+      "function_class": 2
+    },
+    {
+      "id": "GimbalMode",
+      "value": 24,
+      "zh_cn": "云台模式",
+      "function_class": 2
+    },
+    {
+      "id": "QuickSetting",
+      "value": 25,
+      "zh_cn": "快捷键设置",
+      "function_class": 4
+    },
+    {
+      "id": "AFMF",
+      "value": 26,
+      "zh_cn": "AF/MF",
+      "en":"AF/MF",
+      "function_class": 1
+    },
+    {
+      "id": "CloseTips",
+      "value": 27,
+      "zh_cn": "关闭tips",
+      "en":"Close Tips",
+      "function_class": 4
+    },
+    {
+      "id": "SmartGear",
+      "value": 28,
+      "zh_cn": "智能脚架开关",
+      "en":"Smart Gear",
+      "function_class": 6
+    },
+    {
+      "id": "ReviewWarning",
+      "value": 29,
+      "zh_cn": "查看warning",
+      "function_class": 4
+    },
+    {
+      "id": "SwitchFrequence",
+      "value": 30,
+      "zh_cn": "切换5.8G/2.4G",
+      "en":"Switch 5.8G/2.4G",
+      "function_class": 6
+    },
+    {
+      "id": "UpdateHomeDrone",
+      "value": 31,
+      "zh_cn": "更新home点(当前飞机位置)",
+      "function_class": 3
+    },
+    {
+      "id": "UpdateHomeRC",
+      "value": 32,
+      "zh_cn": "更新home点(当前遥控器位置)",
+      "function_class": 3
+    },
+    {
+      "id": "FlyExp",
+      "value": 34,
+      "zh_cn": "飞行手感（水平倾角）",
+      "function_class": 3
+    },
+    {
+      "id": "GimbalExp",
+      "value": 35,
+      "zh_cn": "云台手感",
+      "function_class": 2
+    },
+    {
+      "id": "Focus",
+      "value": 37,
+      "zh_cn": "focus",
+      "function_class": 1
+    },
+    {
+      "id": "Apeture",
+      "value": 38,
+      "zh_cn": "模拟光圈",
+      "function_class": 1
+    },
+    {
+      "id": "CameraZoom",
+      "value": 39,
+      "zh_cn": "相机zoom",
+      "function_class": 1
+    },
+    {
+      "id": "FpvPitch",
+      "value": 40,
+      "zh_cn": "fpv pitch",
+      "function_class": 2
+    },
+    {
+      "id": "CompositionMode",
+      "value": 41,
+      "zh_cn": "构图模式",
+      "en":"Composition Mode",
+      "function_class": 5
+    },
+    {
+      "id": "Spotlight",
+      "value": 42,
+      "zh_cn": "构图模式暂停",
+      "en":"Spotlight Start/Stop",
+      "function_class": 5
+    },
+    {
+      "id": "FocusPeaking",
+      "value": 43,
+      "zh_cn": "峰值对焦",
+      "en":"Peak Focus Threshold",
+      "function_class": 1
+    },
+    {
+      "id": "GridLine",
+      "value": 44,
+      "zh_cn": "网格线",
+      "en":"Grid",
+      "function_class": 1
+    },
+    {
+      "id": "Histogram",
+      "value": 45,
+      "zh_cn": "直方图",
+      "en":"Histogram",
+      "function_class": 1
+    },
+    {
+      "id": "AEMFSwitch",
+      "value": 46,
+      "zh_cn": "白平衡",
+      "en":"White Balance",
+      "function_class": 1
+    },
+    {
+      "id": "OverExposure",
+      "value": 47,
+      "zh_cn": "过曝提示",
+      "en":"Over Exposure Warning",
+      "function_class": 1
+    },
+    {
+      "id": "ISO",
+      "value": 48,
+      "zh_cn": "ISO",
+      "en":"ISO",
+      "function_class": 1
+    },
+    {
+      "id": "SHUT",
+      "value": 49,
+      "zh_cn": "SHUT",
+      "en":"SHUT",
+      "function_class": 1
+    },
+    {
+      "id": "EV",
+      "value": 50,
+      "zh_cn": "EV",
+      "function_class": 1
+    },
+    {
+      "id": "IRIS",
+      "value": 51,
+      "zh_cn": "IRIS",
+      "function_class": 1
+    },
+    {
+      "id": "QuickReleaseLimit",
+      "value": 53,
+      "zh_cn": "快速解除限位",
+      "function_class": 6
+    },
+    {
+      "id": "Transformation",
+      "value": 54,
+      "zh_cn": "脚架起落",
+      "en":"Transformation",
+      "function_class": 6
+    },
+    {
+      "id": "FCHoriMax",
+      "value": 55,
+      "zh_cn": "调节飞控水平最大速度",
+      "function_class": 3
+    },
+    {
+      "id": "FCVerMax",
+      "value": 56,
+      "zh_cn": "调节飞控垂直最大速度",
+      "function_class": 3
+    },
+    {
+      "id": "FCMax",
+      "value": 57,
+      "zh_cn": "调节飞控最大速度",
+      "function_class": 3
+    },
+    {
+      "id": "DroneSyncGimbal",
+      "value": 58,
+      "zh_cn": "飞机方向同步云台方向",
+      "function_class": 2
+    },
+    {
+      "id": "CloseRadarMap",
+      "value": 59,
+      "zh_cn": "关闭雷达地图",
+      "function_class": 5
+    },
+    {
+      "id": "CloseDownVPS",
+      "value": 60,
+      "zh_cn": "关闭下视",
+      "en":"Close Down VPS",
+      "function_class": 5
+    },
+    {
+      "id": "CloseFrontAss",
+      "value": 61,
+      "zh_cn": "关闭前避障",
+      "en":"Close All Vision Function",
+      "function_class": 5
+    },
+    {
+      "id": "SwitchGimbalFpv",
+      "value": 62,
+      "zh_cn": "相机/FPV切换",
+      "en":"Switch Gimbal/FPV",
+      "function_class": 2
+    },
+    {
+      "id": "FullScreen",
+      "value": 63,
+      "zh_cn": "全屏模式",
+      "en":"FullScreen",
+      "function_class": 4
+    },
+    {
+      "id": "EnterGS",
+      "value": 64,
+      "zh_cn": "进入地面站模式",
+      "function_class": 5
+    },
+    {
+      "id": "QuickGS",
+      "value": 65,
+      "zh_cn": "退出地面站模式",
+      "function_class": 5
+    },
+    {
+      "id": "QuickFixWing",
+      "value": 67,
+      "zh_cn": "退出固定翼模式",
+      "function_class": 3
+    },
+    {
+      "id": "MenuSetting",
+      "value": 70,
+      "zh_cn": "菜单功能",
+      "function_class": 4
+    },
+    {
+      "id": "GimbalPitch",
+      "value": 71,
+      "zh_cn": "主云台Pitch",
+      "function_class": 2
+    },
+    {
+      "id": "GimbalRoll",
+      "value": 72,
+      "zh_cn": "主云台Roll",
+      "function_class": 2
+    },
+    {
+      "id": "GimbalYaw",
+      "value": 73,
+      "zh_cn": "主云台Yaw",
+      "function_class": 2
+    },
+    {
+      "id": "SecGimbalPitch",
+      "value": 74,
+      "zh_cn": "次云台Pitch",
+      "function_class": 2
+    },
+    {
+      "id": "SecGimbalRoll",
+      "value": 75,
+      "zh_cn": "次云台Roll",
+      "function_class": 2
+    },
+    {
+      "id": "SecGimbalYaw",
+      "value": 76,
+      "zh_cn": "次云台Yaw",
+      "function_class": 2
+    },
+    {
+      "id": "TorsGyro",
+      "value": 77,
+      "zh_cn": "偏航角速度",
+      "function_class": 3
+    },
+    {
+      "id": "VertVelocity",
+      "value": 78,
+      "zh_cn": "垂直速度",
+      "function_class": 3
+    },
+    {
+      "id": "GimbalPitchYawCenter",
+      "value": 79,
+      "zh_cn": "云台回中",
+      "function_class": 2
+    },
+    {
+      "id": "ColorOscilloScope",
+      "value": 80,
+      "zh_cn": "打开／关闭色彩示波器",
+      "function_class": 1
+    },
+    {
+      "id": "GroupInformation",
+      "value": 82,
+      "zh_cn": "查看组群信息",
+      "function_class": 4
+    },
+    {
+      "id": "GimbalDownCenter",
+      "value": 81,
+      "zh_cn": "云台回中／朝下",
+      "function_class": 2
+    },
+    {
+      "id": "Other",
+      "value": 110,
+      "zh_cn": "未定义",
+      "function_class": 0
+    }
+  ],
+  "productlist": [
+    {
+      "product": "default",
+      "date": "1469687591",
+      "min_rcver": "1.6.0",
+      "priority": "0",
+      "list": [
+        {
+          "id": "C1",
+          "include": [
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "C2",
+          "include": [
+            "LiveViewExpand",
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "C3",
+          "include": [
+            "Navigation1",
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "C4",
+          "include": [
+            "Vision1",
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "BA",
+          "include": [
+            "CameraSetting",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BB",
+          "include": [
+            "CameraSetting",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BC",
+          "include": [
+            "CameraSetting",
+            "SwitchFrequence",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BD",
+          "include": [
+            "Transformation",
+            "CameraSetting",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BE",
+          "include": [
+            "CameraSetting",
+            "SmartGear"
+          ]
+        },
+        {
+          "id": "BF",
+          "include": [
+            "SmartGear"
+          ]
+        },
+        {
+          "id": "BG",
+          "include": [
+            "CenterMetering",
+            "AeLock",
+            "PlayBack",
+            "AFMF",
+            "FocusPeaking",
+            "GridLine",
+            "AEMFSwitch",
+            "Histogram",
+            "OverExposure"
+          ]
+        },
+        {
+          "id": "BH",
+          "include": [
+            "CenterFocus",
+            "CenterMetering",
+            "AeLock",
+            "PlayBack",
+            "AFMF",
+            "FocusPeaking",
+            "GridLine",
+            "Histogram",
+            "OverExposure"
+          ]
+        },
+        {
+          "id": "SET",
+          "include": [
+            "EV"
+          ]
+        },
+        {
+          "id": "SHUT",
+          "include": [
+            "SHUT"
+          ]
+        },
+        {
+          "id": "APER",
+          "include": [
+            "IRIS"
+          ]
+        },
+        {
+          "id": "ISO",
+          "include": [
+            "ISO"
+          ]
+        },
+        {
+          "id": "Menu",
+          "include": [
+            "MenuSetting"
+          ]
+        },
+        {
+          "id": "TD",
+          "include": [
+            "CameraZoom",
+            "Apeture",
+            "FlyExp",
+            "TorsGyro",
+            "VertVelocity"
+          ]
+        },
+        {
+          "id": "LW",
+          "include": [
+            "GimbalPitch"
+          ]
+        },
+        {
+          "id": "RW",
+          "include": [
+            "GimbalYaw"
+          ]
+        },
+        {
+          "id": "LD",
+          "include": [
+            "GimbalExp",
+            "FlyExp",
+            "TorsGyro",
+            "VertVelocity"
+          ]
+        },
+        {
+          "id": "RD",
+          "include": [
+            "GimbalExp",
+            "FlyExp",
+            "TorsGyro",
+            "VertVelocity"
+          ]
+        },
+        {
+          "id": "FlightMode",
+          "include": []
+        },
+        {
+          "id": "Focus",
+          "include": []
+        },
+        {
+          "id": "Photo",
+          "include": []
+        },
+        {
+          "id": "Power",
+          "include": []
+        },
+        {
+          "id": "Record",
+          "include": []
+        },
+        {
+          "id": "Stop",
+          "include": []
+        }
+      ],
+      "button_map_list": [
+        "CameraSetting",
+        "MapSwitch",
+        "ClearRoute",
+        "Battery",
+        "CenterMetering",
+        "AeLock",
+        "ForeArm",
+        "LiveViewExpand",
+        "QuickCircle",
+        "PlayBack",
+        "CenterFocus",
+        "GetGimbalControl",
+        "AFMF",
+        "CloseTips",
+        "ReviewWarning",
+        "SwitchFrequence",
+        "CompositionMode",
+        "FocusPeaking",
+        "GridLine",
+        "Histogram",
+        "AEMFSwitch",
+        "OverExposure",
+        "GimbalCenter",
+        "CloseRadarMap",
+        "CloseDownVPS",
+        "CloseFrontAss",
+        "FullScreen"
+      ],
+      "td_map_list": [
+        "Focus"
+      ],
+      "ldrd_map_list": [
+        "GimbalExp",
+        "FlyExp",
+        "TorsGyro",
+        "VertVelocity"
+      ],
+      "lwrw_map_list": [
+        "GimbalPitch",
+        "GimbalYaw"
+      ]
+    },
+    {
+      "product": "p4",
+      "date": "1469687591",
+      "min_rcver": "1.6.0",
+      "priority": "0",
+      "list": [
+        {
+          "id": "C1",
+          "include": [
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "C2",
+          "include": [
+            "LiveViewExpand",
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "C3",
+          "include": [
+            "Navigation1",
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "C4",
+          "include": [
+            "Vision1",
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "BA",
+          "include": [
+            "CameraSetting",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BB",
+          "include": [
+            "CameraSetting",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BC",
+          "include": [
+            "CameraSetting",
+            "SwitchFrequence",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BD",
+          "include": [
+            "Transformation",
+            "CameraSetting",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BE",
+          "include": [
+            "CameraSetting",
+            "SmartGear"
+          ]
+        },
+        {
+          "id": "BF",
+          "include": [
+            "SmartGear"
+          ]
+        },
+        {
+          "id": "BG",
+          "include": [
+            "CenterMetering",
+            "AeLock",
+            "PlayBack",
+            "AFMF",
+            "FocusPeaking",
+            "GridLine",
+            "AEMFSwitch",
+            "Histogram",
+            "OverExposure"
+          ]
+        },
+        {
+          "id": "BH",
+          "include": [
+            "CenterFocus",
+            "CenterMetering",
+            "AeLock",
+            "PlayBack",
+            "AFMF",
+            "FocusPeaking",
+            "GridLine",
+            "Histogram",
+            "OverExposure"
+          ]
+        },
+        {
+          "id": "SET",
+          "include": [
+            "EV"
+          ]
+        },
+        {
+          "id": "SHUT",
+          "include": [
+            "SHUT"
+          ]
+        },
+        {
+          "id": "APER",
+          "include": [
+            "IRIS"
+          ]
+        },
+        {
+          "id": "ISO",
+          "include": [
+            "ISO"
+          ]
+        },
+        {
+          "id": "Menu",
+          "include": [
+            "MenuSetting"
+          ]
+        },
+        {
+          "id": "TD",
+          "include": [
+            "CameraZoom",
+            "Apeture",
+            "FlyExp",
+            "TorsGyro",
+            "VertVelocity"
+          ]
+        },
+        {
+          "id": "LW",
+          "include": [
+            "GimbalPitch"
+          ]
+        },
+        {
+          "id": "RW",
+          "include": [
+            "GimbalYaw"
+          ]
+        },
+        {
+          "id": "LD",
+          "include": [
+            "GimbalExp",
+            "FlyExp",
+            "TorsGyro",
+            "VertVelocity"
+          ]
+        },
+        {
+          "id": "RD",
+          "include": [
+            "GimbalExp",
+            "FlyExp",
+            "TorsGyro",
+            "VertVelocity"
+          ]
+        },
+        {
+          "id": "FlightMode",
+          "include": []
+        },
+        {
+          "id": "Focus",
+          "include": []
+        },
+        {
+          "id": "Photo",
+          "include": []
+        },
+        {
+          "id": "Power",
+          "include": []
+        },
+        {
+          "id": "Record",
+          "include": []
+        },
+        {
+          "id": "Stop",
+          "include": []
+        }
+      ],
+      "button_map_list": [
+        "SwitchGimbalMode",
+        "Vision1"
+      ],
+      "td_map_list": [
+      ],
+      "ldrd_map_list": [
+      ],
+      "lwrw_map_list": [
+      ]
+    },
+    {
+      "product": "in2",
+      "date": "1469687591",
+      "min_rcver": "1.6.0",
+      "priority": "0",
+      "list": [
+        {
+          "id": "C1",
+          "include": [
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "C2",
+          "include": [
+            "LiveViewExpand",
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "C3",
+          "include": [
+            "Navigation1",
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "C4",
+          "include": [
+            "Vision1",
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "BA",
+          "include": [
+            "CameraSetting",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BB",
+          "include": [
+            "CameraSetting",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BC",
+          "include": [
+            "CameraSetting",
+            "SwitchFrequence",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BD",
+          "include": [
+            "Transformation",
+            "CameraSetting",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BE",
+          "include": [
+            "CameraSetting",
+            "SmartGear"
+          ]
+        },
+        {
+          "id": "BF",
+          "include": [
+            "SmartGear"
+          ]
+        },
+        {
+          "id": "BG",
+          "include": [
+            "CenterMetering",
+            "AeLock",
+            "PlayBack",
+            "AFMF",
+            "FocusPeaking",
+            "GridLine",
+            "AEMFSwitch",
+            "Histogram",
+            "OverExposure"
+          ]
+        },
+        {
+          "id": "BH",
+          "include": [
+            "CenterFocus",
+            "CenterMetering",
+            "AeLock",
+            "PlayBack",
+            "AFMF",
+            "FocusPeaking",
+            "GridLine",
+            "Histogram",
+            "OverExposure"
+          ]
+        },
+        {
+          "id": "SET",
+          "include": [
+            "EV"
+          ]
+        },
+        {
+          "id": "SHUT",
+          "include": [
+            "SHUT"
+          ]
+        },
+        {
+          "id": "APER",
+          "include": [
+            "IRIS"
+          ]
+        },
+        {
+          "id": "ISO",
+          "include": [
+            "ISO"
+          ]
+        },
+        {
+          "id": "Menu",
+          "include": [
+            "MenuSetting"
+          ]
+        },
+        {
+          "id": "TD",
+          "include": [
+            "CameraZoom",
+            "Apeture",
+            "FlyExp",
+            "TorsGyro",
+            "VertVelocity"
+          ]
+        },
+        {
+          "id": "LW",
+          "include": [
+            "GimbalPitch"
+          ]
+        },
+        {
+          "id": "RW",
+          "include": [
+            "GimbalYaw"
+          ]
+        },
+        {
+          "id": "LD",
+          "include": [
+            "GimbalExp",
+            "FlyExp",
+            "TorsGyro",
+            "VertVelocity"
+          ]
+        },
+        {
+          "id": "RD",
+          "include": [
+            "GimbalExp",
+            "FlyExp",
+            "TorsGyro",
+            "VertVelocity"
+          ]
+        },
+        {
+          "id": "FlightMode",
+          "include": []
+        },
+        {
+          "id": "Focus",
+          "include": []
+        },
+        {
+          "id": "Photo",
+          "include": []
+        },
+        {
+          "id": "Power",
+          "include": []
+        },
+        {
+          "id": "Record",
+          "include": []
+        },
+        {
+          "id": "Stop",
+          "include": []
+        }
+      ],
+      "button_map_list": [
+        "GimbalMode",
+        "GimbalRecenter",
+        "GimbalPitchYawCenter",
+        "GimbalDownCenter",
+        "Transformation",
+        "SmartGear",
+        "Vision1",
+        "ColorOscilloScope",
+        "GroupInformation"
+      ],
+      "td_map_list": [
+      ],
+      "ldrd_map_list": [
+      ],
+      "lwrw_map_list": [
+      ]
+    },
+    {
+      "product": "m200 Series",
+      "date": "1469687591",
+      "min_rcver": "1.6.0",
+      "priority": "0",
+      "list": [
+        {
+          "id": "C1",
+          "include": [
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "C2",
+          "include": [
+            "LiveViewExpand",
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "C3",
+          "include": [
+            "Navigation1",
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "C4",
+          "include": [
+            "Vision1",
+            "ForeArm",
+            "MapSwitch",
+            "ClearRoute",
+            "CloseDownVPS",
+            "SwitchGimbalFpv",
+            "CloseFrontAss"
+          ]
+        },
+        {
+          "id": "BA",
+          "include": [
+            "CameraSetting",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BB",
+          "include": [
+            "CameraSetting",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BC",
+          "include": [
+            "CameraSetting",
+            "SwitchFrequence",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BD",
+          "include": [
+            "Transformation",
+            "CameraSetting",
+            "Battery",
+            "GetGimbalControl",
+            "CloseTips",
+            "ReviewWarning",
+            "FullScreen"
+          ]
+        },
+        {
+          "id": "BE",
+          "include": [
+            "CameraSetting",
+            "SmartGear"
+          ]
+        },
+        {
+          "id": "BF",
+          "include": [
+            "SmartGear"
+          ]
+        },
+        {
+          "id": "BG",
+          "include": [
+            "CenterMetering",
+            "AeLock",
+            "PlayBack",
+            "AFMF",
+            "FocusPeaking",
+            "GridLine",
+            "AEMFSwitch",
+            "Histogram",
+            "OverExposure"
+          ]
+        },
+        {
+          "id": "BH",
+          "include": [
+            "CenterFocus",
+            "CenterMetering",
+            "AeLock",
+            "PlayBack",
+            "AFMF",
+            "FocusPeaking",
+            "GridLine",
+            "Histogram",
+            "OverExposure"
+          ]
+        },
+        {
+          "id": "SET",
+          "include": [
+            "EV"
+          ]
+        },
+        {
+          "id": "SHUT",
+          "include": [
+            "SHUT"
+          ]
+        },
+        {
+          "id": "APER",
+          "include": [
+            "IRIS"
+          ]
+        },
+        {
+          "id": "ISO",
+          "include": [
+            "ISO"
+          ]
+        },
+        {
+          "id": "Menu",
+          "include": [
+            "MenuSetting"
+          ]
+        },
+        {
+          "id": "TD",
+          "include": [
+            "CameraZoom",
+            "Apeture",
+            "FlyExp",
+            "TorsGyro",
+            "VertVelocity"
+          ]
+        },
+        {
+          "id": "LW",
+          "include": [
+            "GimbalPitch"
+          ]
+        },
+        {
+          "id": "RW",
+          "include": [
+            "GimbalYaw"
+          ]
+        },
+        {
+          "id": "LD",
+          "include": [
+            "GimbalExp",
+            "FlyExp",
+            "TorsGyro",
+            "VertVelocity"
+          ]
+        },
+        {
+          "id": "RD",
+          "include": [
+            "GimbalExp",
+            "FlyExp",
+            "TorsGyro",
+            "VertVelocity"
+          ]
+        },
+        {
+          "id": "FlightMode",
+          "include": []
+        },
+        {
+          "id": "Focus",
+          "include": []
+        },
+        {
+          "id": "Photo",
+          "include": []
+        },
+        {
+          "id": "Power",
+          "include": []
+        },
+        {
+          "id": "Record",
+          "include": []
+        },
+        {
+          "id": "Stop",
+          "include": []
+        }
+      ],
+      "button_map_list": [
+        "GimbalMode",
+        "GimbalRecenter",
+        "GimbalPitchYawCenter",
+        "Vision1"
+      ],
+      "td_map_list": [
+      ],
+      "ldrd_map_list": [
+      ],
+      "lwrw_map_list": [
+      ]
+    }
+  ]
+}

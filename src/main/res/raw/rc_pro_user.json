@@ -1,0 +1,291 @@
+{
+  "username_now": "User 1",
+  "users": [
+    {
+      "configIndex_now": 0,
+      "configs": [
+        {
+          "funcMaps": [
+            {
+              "btn_id": 0,
+              "func_value": 110
+            },
+            {
+              "btn_id": 1,
+              "func_value": 110
+            },
+            {
+              "btn_id": 2,
+              "func_value": 17
+            },
+            {
+              "btn_id": 3,
+              "func_value": 8
+            },
+            {
+              "btn_id": 4,
+              "func_value": 27
+            },
+            {
+              "btn_id": 5,
+              "func_value": 29
+            },
+            {
+              "btn_id": 6,
+              "func_value": 30
+            },
+            {
+              "btn_id": 7,
+              "func_value": 54
+            },
+            {
+              "btn_id": 8,
+              "func_value": 0
+            },
+            {
+              "btn_id": 9,
+              "func_value": 28
+            },
+            {
+              "btn_id": 10,
+              "func_value": 26
+            },
+            {
+              "btn_id": 11,
+              "func_value": 17
+            },
+            {
+              "btn_id": 12,
+              "func_value": 50
+            },
+            {
+              "btn_id": 13,
+              "func_value": 49
+            },
+            {
+              "btn_id": 14,
+              "func_value": 51
+            },
+            {
+              "btn_id": 15,
+              "func_value": 48
+            },
+            {
+              "btn_id": 16,
+              "func_value": 25
+            },
+            {
+              "btn_id": 17,
+              "func_value": 37
+            },
+            {
+              "btn_id": 18,
+              "func_value": 71
+            },
+            {
+              "btn_id": 19,
+              "func_value": 73
+            },
+            {
+              "btn_id": 20,
+              "func_value": 110
+            },
+            {
+              "btn_id": 21,
+              "func_value": 110
+            }
+          ]
+        },
+        {
+          "funcMaps": [
+            {
+              "btn_id": 0,
+              "func_value": 110
+            },
+            {
+              "btn_id": 1,
+              "func_value": 110
+            },
+            {
+              "btn_id": 2,
+              "func_value": 17
+            },
+            {
+              "btn_id": 3,
+              "func_value": 8
+            },
+            {
+              "btn_id": 4,
+              "func_value": 27
+            },
+            {
+              "btn_id": 5,
+              "func_value": 29
+            },
+            {
+              "btn_id": 6,
+              "func_value": 30
+            },
+            {
+              "btn_id": 7,
+              "func_value": 54
+            },
+            {
+              "btn_id": 8,
+              "func_value": 0
+            },
+            {
+              "btn_id": 9,
+              "func_value": 28
+            },
+            {
+              "btn_id": 10,
+              "func_value": 26
+            },
+            {
+              "btn_id": 11,
+              "func_value": 17
+            },
+            {
+              "btn_id": 12,
+              "func_value": 50
+            },
+            {
+              "btn_id": 13,
+              "func_value": 49
+            },
+            {
+              "btn_id": 14,
+              "func_value": 51
+            },
+            {
+              "btn_id": 15,
+              "func_value": 48
+            },
+            {
+              "btn_id": 16,
+              "func_value": 25
+            },
+            {
+              "btn_id": 17,
+              "func_value": 37
+            },
+            {
+              "btn_id": 18,
+              "func_value": 71
+            },
+            {
+              "btn_id": 19,
+              "func_value": 73
+            },
+            {
+              "btn_id": 20,
+              "func_value": 110
+            },
+            {
+              "btn_id": 21,
+              "func_value": 110
+            }
+          ]
+        },
+        {
+          "funcMaps": [
+            {
+              "btn_id": 0,
+              "func_value": 110
+            },
+            {
+              "btn_id": 1,
+              "func_value": 110
+            },
+            {
+              "btn_id": 2,
+              "func_value": 17
+            },
+            {
+              "btn_id": 3,
+              "func_value": 8
+            },
+            {
+              "btn_id": 4,
+              "func_value": 27
+            },
+            {
+              "btn_id": 5,
+              "func_value": 29
+            },
+            {
+              "btn_id": 6,
+              "func_value": 30
+            },
+            {
+              "btn_id": 7,
+              "func_value": 54
+            },
+            {
+              "btn_id": 8,
+              "func_value": 0
+            },
+            {
+              "btn_id": 9,
+              "func_value": 28
+            },
+            {
+              "btn_id": 10,
+              "func_value": 26
+            },
+            {
+              "btn_id": 11,
+              "func_value": 17
+            },
+            {
+              "btn_id": 12,
+              "func_value": 50
+            },
+            {
+              "btn_id": 13,
+              "func_value": 49
+            },
+            {
+              "btn_id": 14,
+              "func_value": 51
+            },
+            {
+              "btn_id": 15,
+              "func_value": 48
+            },
+            {
+              "btn_id": 16,
+              "func_value": 25
+            },
+            {
+              "btn_id": 17,
+              "func_value": 37
+            },
+            {
+              "btn_id": 18,
+              "func_value": 71
+            },
+            {
+              "btn_id": 19,
+              "func_value": 73
+            },
+            {
+              "btn_id": 20,
+              "func_value": 110
+            },
+            {
+              "btn_id": 21,
+              "func_value": 110
+            }
+          ]
+        }
+      ],
+      "username": "User 1",
+      "auto_mode": true,
+      "single": 0,
+      "master": 1,
+      "slave": 2
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="horizontal" android:paddingLeft="10dp" android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView android:id="@+id/log_dlg_control" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/btn_zoom_selector" android:scaleType="center" android:adjustViewBounds="true" android:layout_alignParentTop="true" android:layout_alignParentRight="true"/>
+    <ImageView android:id="@+id/log_dlg_lock" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/btn_lock_selector" android:scaleType="center" android:adjustViewBounds="true" android:layout_below="@+id/log_dlg_control" android:layout_alignParentRight="true"/>
+    <LinearLayout android:orientation="vertical" android:id="@+id/dbg_region" android:paddingTop="40dp" android:layout_width="140dp" android:layout_height="match_parent" android:layout_below="@+id/log_dlg_lock" android:layout_alignParentRight="true">
+        <NumberPicker android:id="@+id/numberPicker1" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/set_sre_button" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Set Sre"/>
+    </LinearLayout>
+    <ScrollView android:scrollbarSize="1dp" android:scrollbarThumbVertical="@android:color/holo_red_light" android:scrollbarTrackVertical="@color/midware_white_half" android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbarStyle="outsideOverlay" android:id="@+id/log_dlg_scroll" android:scrollbars="vertical" android:layout_width="match_parent" android:layout_height="match_parent" android:layout_toLeftOf="@+id/dbg_region" android:fadeScrollbars="false">
+        <TextView android:textSize="10sp" android:textStyle="bold" android:textColor="#ffff0000" android:id="@+id/log_dlg_content" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </ScrollView>
+    <RadioGroup android:id="@+id/log_dlg_rg" android:layout_width="36dp" android:layout_height="wrap_content" android:layout_marginLeft="4dp" android:layout_marginTop="10dp" android:layout_toRightOf="@+id/log_dlg_scroll" android:layout_below="@+id/log_dlg_lock"/>
+</RelativeLayout>

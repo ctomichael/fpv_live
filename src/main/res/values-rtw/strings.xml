@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fpv_base_default_NA">N/A</string>
+    <string name="fpv_base_imperial">%.1f ft</string>
+    <string name="fpv_base_metric">%.1f m</string>
+</resources>

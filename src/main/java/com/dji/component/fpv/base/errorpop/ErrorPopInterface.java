@@ -1,0 +1,51 @@
+package com.dji.component.fpv.base.errorpop;
+
+import dji.diagnostics.model.DJIDiagnosticsError;
+
+public interface ErrorPopInterface extends DJIDiagnosticsError {
+    public static final int FLYC_HOME_LOCATION_UPDATE = 3000001;
+    public static final int FLY_FORBID_COLLISION_WITH_AUTH_AREA_WITHOUT_LICENSE = 190004;
+    public static final int FLY_FORBID_COLLISION_WITH_GO_HOME_MODE = 190006;
+    public static final int FLY_FORBID_COLLISION_WITH_LIMIT_AREA = 190003;
+    public static final int FLY_FORBID_COLLISION_WITH_LIMIT_HEIGHT_AREA = 190005;
+    public static final int FLY_FORBID_COLLISION_WITH_SMART_MODE = 190007;
+    public static final int FLY_FORBID_COLLISION_WITH_SPECIAL_UNLOCK_AREA = 190008;
+    public static final int FLY_FORBID_HAVE_THREE_MINUTES_APPLY_TFRS = 190011;
+    public static final int FLY_FORBID_LANDING_COUNT_DOWN = 190009;
+    public static final int FLY_FORBID_NOTIFY_CLICK_AREA = 190010;
+    public static final int FLY_FORBID_TAKE_OFF_UNDER_LIMIT_HEIGHT_AREA = 190001;
+    public static final int FLY_FORBID_TAKE_OFF_UNDER_WARNING_AREA = 190002;
+    public static final int FLY_FORBID_TAKE_OFF_WITH_LIMIT_HEIGHT_WITHOUT_GPS = 190000;
+    public static final int FLY_FORBID_UNKNOWN = 190255;
+    public static final int MISSION_QUICK_SHOT_CAMERA_WRONG_COMEBACK = 10000008;
+    public static final int MISSION_QUICK_SHOT_DISTANCE_COME_BACK = 10000003;
+    public static final int MISSION_QUICK_SHOT_FC_MODE_ERROR = 10000010;
+    public static final int MISSION_QUICK_SHOT_FLYLIMIT_COME_BACK = 10000002;
+    public static final int MISSION_QUICK_SHOT_GPS_INVALID_COME_BACK = 10000005;
+    public static final int MISSION_QUICK_SHOT_INIT_FAIL_COME_BACK = 10000007;
+    public static final int MISSION_QUICK_SHOT_NORMAL_COME_BACK = 10000001;
+    public static final int MISSION_QUICK_SHOT_NOT_IN_AIR = 10000009;
+    public static final int MISSION_QUICK_SHOT_OBSTACLE_AVOID = 10000011;
+    public static final int MISSION_QUICK_SHOT_PANO_SHOT_ADJUST_CAMERA_PARAMETER_FAILED = 10000020;
+    public static final int MISSION_QUICK_SHOT_PANO_SHOT_FAIL_TAKE_CONTROL = 10000014;
+    public static final int MISSION_QUICK_SHOT_PANO_SHOT_GIMBAL_STUCK = 10000013;
+    public static final int MISSION_QUICK_SHOT_PANO_SHOT_LOADING_CALIBRATION_FAILED = 10000019;
+    public static final int MISSION_QUICK_SHOT_PANO_SHOT_PHOTO_STITCHING_FAILED = 10000018;
+    public static final int MISSION_QUICK_SHOT_PANO_SHOT_STORAGE_NOT_ENOUGH = 10000015;
+    public static final int MISSION_QUICK_SHOT_PANO_SHOT_TAKE_PHOTO_FAILED = 10000017;
+    public static final int MISSION_QUICK_SHOT_PANO_SHOT_TIME_OUT = 10000021;
+    public static final int MISSION_QUICK_SHOT_RC_INTERRUPT_COME_BACK = 10000006;
+    public static final int MISSION_QUICK_SHOT_TIMEOUT_COME_BACK = 10000004;
+    public static final int MISSION_QUICK_SHOT_TRACKING_SHOT_TARGET_LOST = 10000016;
+    public static final int MISSION_QUICK_SHOT_USER_PAUSE = 10000012;
+    public static final int PHONE_TEST_DANGER = 2000001;
+    public static final int PHONE_TEST_DANGER_2 = 2000002;
+    public static final int PHONE_TEST_DANGER_3 = 2000003;
+    public static final int PHONE_TEST_INFO = 2000201;
+    public static final int PHONE_TEST_INFO_2 = 2000202;
+    public static final int PHONE_TEST_INFO_3 = 2000203;
+    public static final int PHONE_TEST_WARNING = 2000101;
+    public static final int PHONE_TEST_WARNING_2 = 2000102;
+    public static final int PHONE_TEST_WARNING_3 = 2000103;
+    public static final int SPORT_CHANNEL_ON_ENTER_FPV = 3000002;
+}

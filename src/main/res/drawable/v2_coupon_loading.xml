@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+    <item android:duration="30" android:drawable="@drawable/loading_00000"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00001"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00002"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00003"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00004"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00005"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00006"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00007"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00008"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00009"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00010"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00011"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00012"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00013"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00014"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00015"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00016"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00017"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00018"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00019"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00020"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00021"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00022"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00023"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00024"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00025"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00026"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00027"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00028"/>
+    <item android:duration="30" android:drawable="@drawable/loading_00029"/>
+</animation-list>

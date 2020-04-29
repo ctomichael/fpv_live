@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dji.widget2.dialog.content.standard.view.LoadingView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:paddingTop="@dimen/s_24_dp" android:paddingBottom="@dimen/s_24_dp" android:layout_width="match_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/s_16_dp" android:paddingEnd="@dimen/s_16_dp"/>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dji.publics.DJIUI.DJILinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <ProgressBar android:layout_gravity="center_vertical" android:id="@+id/dlg_progress_round_pb_circle" android:layout_width="@dimen/progress_round_width" android:layout_height="@dimen/progress_round_width" android:layout_marginRight="5dp" android:indeterminateDrawable="@drawable/dlg_progress_round_bg" android:indeterminateBehavior="repeat"/>
+    <dji.publics.DJIUI.DJITextView android:textSize="@dimen/text_dp_16" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@+id/dlg_progress_round_tv" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+</dji.publics.DJIUI.DJILinearLayout>

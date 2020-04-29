@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.dji.widget2.dialog.content.standard.view.SelectableListView xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="wrap_content">
+    <android.support.v4.widget.Space android:id="@+id/space_1" android:layout_width="match_parent" android:layout_height="@dimen/s_24_dp"/>
+    <ImageView android:layout_gravity="center_horizontal" android:id="@+id/iv_icon" android:layout_width="@dimen/s_30_dp" android:layout_height="@dimen/s_30_dp" android:scaleType="centerInside"/>
+    <android.support.v4.widget.Space android:id="@+id/space_2" android:layout_width="match_parent" android:layout_height="@dimen/s_8_dp"/>
+    <TextView android:textSize="@dimen/s_16_dp" android:textColor="@color/white" android:gravity="center" android:id="@+id/tv_main" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLines="2" android:paddingStart="@dimen/s_16_dp" android:paddingEnd="@dimen/s_16_dp"/>
+    <android.support.v4.widget.Space android:id="@+id/space_3" android:layout_width="match_parent" android:layout_height="@dimen/s_16_dp"/>
+    <ListView android:id="@+id/list" android:layout_width="match_parent" android:layout_height="@dimen/s_156_dp"/>
+    <android.support.v4.widget.Space android:id="@+id/space_4" android:layout_width="match_parent" android:layout_height="@dimen/s_32_dp"/>
+</com.dji.widget2.dialog.content.standard.view.SelectableListView>

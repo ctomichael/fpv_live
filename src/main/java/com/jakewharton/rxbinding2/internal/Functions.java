@@ -1,0 +1,32 @@
+package com.jakewharton.rxbinding2.internal;
+
+import android.support.annotation.RestrictTo;
+import io.reactivex.functions.Predicate;
+import java.util.concurrent.Callable;
+
+@RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
+public final class Functions {
+    private static final Always ALWAYS_TRUE = new Always(true);
+    public static final Callable<Boolean> CALLABLE_ALWAYS_TRUE = ALWAYS_TRUE;
+    public static final Predicate<Object> PREDICATE_ALWAYS_TRUE = ALWAYS_TRUE;
+
+    private static final class Always implements Callable<Boolean>, Predicate<Object> {
+        private final Boolean value;
+
+        Always(Boolean value2) {
+            this.value = value2;
+        }
+
+        public Boolean call() {
+            return this.value;
+        }
+
+        public boolean test(Object t) {
+            return this.value.booleanValue();
+        }
+    }
+
+    private Functions() {
+        throw new AssertionError("No instances.");
+    }
+}

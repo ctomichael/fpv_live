@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:background="@drawable/fmd_toast_bg" android:layout_width="wrap_content" android:layout_height="wrap_content">
+    <TextView android:textSize="@dimen/s_12_dp" android:textColor="@color/white" android:id="@+id/fmd_toast_content_text_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/s_8_dp" android:layout_marginBottom="@dimen/s_8_dp" android:layout_marginStart="@dimen/s_24_dp" android:layout_marginEnd="@dimen/s_24_dp" app:layout_constraintBottom_toBottomOf="0" app:layout_constraintEnd_toEndOf="0" app:layout_constraintStart_toStartOf="0" app:layout_constraintTop_toTopOf="0"/>
+</android.support.constraint.ConstraintLayout>

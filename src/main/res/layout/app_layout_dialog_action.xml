@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+    <View android:id="@+id/view_content_divider" android:background="@color/white_10" android:layout_width="match_parent" android:layout_height="0.5dp"/>
+    <LinearLayout android:orientation="horizontal" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <dji.publics.DJIUI.DJIStateTextView android:textSize="@dimen/s_15_dp" android:textColor="@color/grey_8" android:gravity="center" android:id="@+id/tv_negative" android:layout_width="0dp" android:layout_height="@dimen/s_52_dp" android:layout_weight="1" android:paddingStart="@dimen/s_16_dp" android:paddingEnd="@dimen/s_16_dp"/>
+        <View android:id="@+id/view_action_divider_1" android:background="@color/white_10" android:layout_width="1dp" android:layout_height="@dimen/s_52_dp"/>
+        <dji.publics.DJIUI.DJIStateTextView android:textSize="@dimen/s_15_dp" android:gravity="center" android:id="@+id/tv_neutral" android:layout_width="0dp" android:layout_height="@dimen/s_52_dp" android:layout_weight="1" android:paddingStart="@dimen/s_16_dp" android:paddingEnd="@dimen/s_16_dp"/>
+        <View android:id="@+id/view_action_divider_2" android:background="@color/white_10" android:layout_width="1dp" android:layout_height="@dimen/s_52_dp"/>
+        <dji.publics.DJIUI.DJIStateTextView android:textSize="@dimen/s_15_dp" android:textStyle="bold" android:textColor="@color/black_100" android:gravity="center" android:id="@+id/tv_positive" android:layout_width="0dp" android:layout_height="@dimen/s_52_dp" android:layout_weight="1" android:paddingStart="@dimen/s_16_dp" android:paddingEnd="@dimen/s_16_dp"/>
+    </LinearLayout>
+</LinearLayout>

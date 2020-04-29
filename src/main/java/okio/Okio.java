@@ -1,0 +1,271 @@
+package okio;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InterruptedIOException;
+import java.io.OutputStream;
+import java.net.Socket;
+import java.net.SocketTimeoutException;
+import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.Path;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.annotation.Nullable;
+import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
+
+public final class Okio {
+    static final Logger logger = Logger.getLogger(Okio.class.getName());
+
+    private Okio() {
+    }
+
+    public static BufferedSource buffer(Source source) {
+        return new RealBufferedSource(source);
+    }
+
+    public static BufferedSink buffer(Sink sink) {
+        return new RealBufferedSink(sink);
+    }
+
+    public static Sink sink(OutputStream out) {
+        return sink(out, new Timeout());
+    }
+
+    private static Sink sink(final OutputStream out, final Timeout timeout) {
+        if (out == null) {
+            throw new IllegalArgumentException("out == null");
+        } else if (timeout != null) {
+            return new Sink() {
+                /* class okio.Okio.AnonymousClass1 */
+
+                public void write(Buffer source, long byteCount) throws IOException {
+                    Util.checkOffsetAndCount(source.size, 0, byteCount);
+                    while (byteCount > 0) {
+                        Timeout.this.throwIfReached();
+                        Segment head = source.head;
+                        int toCopy = (int) Math.min(byteCount, (long) (head.limit - head.pos));
+                        out.write(head.data, head.pos, toCopy);
+                        head.pos += toCopy;
+                        byteCount -= (long) toCopy;
+                        source.size -= (long) toCopy;
+                        if (head.pos == head.limit) {
+                            source.head = head.pop();
+                            SegmentPool.recycle(head);
+                        }
+                    }
+                }
+
+                public void flush() throws IOException {
+                    out.flush();
+                }
+
+                public void close() throws IOException {
+                    out.close();
+                }
+
+                public Timeout timeout() {
+                    return Timeout.this;
+                }
+
+                public String toString() {
+                    return "sink(" + out + ")";
+                }
+            };
+        } else {
+            throw new IllegalArgumentException("timeout == null");
+        }
+    }
+
+    public static Sink sink(Socket socket) throws IOException {
+        if (socket == null) {
+            throw new IllegalArgumentException("socket == null");
+        } else if (socket.getOutputStream() == null) {
+            throw new IOException("socket's output stream == null");
+        } else {
+            AsyncTimeout timeout = timeout(socket);
+            return timeout.sink(sink(socket.getOutputStream(), timeout));
+        }
+    }
+
+    public static Source source(InputStream in2) {
+        return source(in2, new Timeout());
+    }
+
+    private static Source source(final InputStream in2, final Timeout timeout) {
+        if (in2 == null) {
+            throw new IllegalArgumentException("in == null");
+        } else if (timeout != null) {
+            return new Source() {
+                /* class okio.Okio.AnonymousClass2 */
+
+                public long read(Buffer sink, long byteCount) throws IOException {
+                    if (byteCount < 0) {
+                        throw new IllegalArgumentException("byteCount < 0: " + byteCount);
+                    } else if (byteCount == 0) {
+                        return 0;
+                    } else {
+                        try {
+                            Timeout.this.throwIfReached();
+                            Segment tail = sink.writableSegment(1);
+                            int bytesRead = in2.read(tail.data, tail.limit, (int) Math.min(byteCount, (long) (8192 - tail.limit)));
+                            if (bytesRead == -1) {
+                                return -1;
+                            }
+                            tail.limit += bytesRead;
+                            sink.size += (long) bytesRead;
+                            return (long) bytesRead;
+                        } catch (AssertionError e) {
+                            if (Okio.isAndroidGetsocknameError(e)) {
+                                throw new IOException(e);
+                            }
+                            throw e;
+                        }
+                    }
+                }
+
+                public void close() throws IOException {
+                    in2.close();
+                }
+
+                public Timeout timeout() {
+                    return Timeout.this;
+                }
+
+                public String toString() {
+                    return "source(" + in2 + ")";
+                }
+            };
+        } else {
+            throw new IllegalArgumentException("timeout == null");
+        }
+    }
+
+    public static Source source(File file) throws FileNotFoundException {
+        if (file != null) {
+            return source(new FileInputStream(file));
+        }
+        throw new IllegalArgumentException("file == null");
+    }
+
+    @IgnoreJRERequirement
+    public static Source source(Path path, OpenOption... options) throws IOException {
+        if (path != null) {
+            return source(Files.newInputStream(path, options));
+        }
+        throw new IllegalArgumentException("path == null");
+    }
+
+    public static Sink sink(File file) throws FileNotFoundException {
+        if (file != null) {
+            return sink(new FileOutputStream(file));
+        }
+        throw new IllegalArgumentException("file == null");
+    }
+
+    /* JADX DEBUG: Failed to find minimal casts for resolve overloaded methods, cast all args instead
+     method: ClspMth{java.io.FileOutputStream.<init>(java.io.File, boolean):void throws java.io.FileNotFoundException}
+     arg types: [java.io.File, int]
+     candidates:
+      ClspMth{java.io.FileOutputStream.<init>(java.lang.String, boolean):void throws java.io.FileNotFoundException}
+      ClspMth{java.io.FileOutputStream.<init>(java.io.File, boolean):void throws java.io.FileNotFoundException} */
+    public static Sink appendingSink(File file) throws FileNotFoundException {
+        if (file != null) {
+            return sink(new FileOutputStream(file, true));
+        }
+        throw new IllegalArgumentException("file == null");
+    }
+
+    @IgnoreJRERequirement
+    public static Sink sink(Path path, OpenOption... options) throws IOException {
+        if (path != null) {
+            return sink(Files.newOutputStream(path, options));
+        }
+        throw new IllegalArgumentException("path == null");
+    }
+
+    public static Sink blackhole() {
+        return new Sink() {
+            /* class okio.Okio.AnonymousClass3 */
+
+            public void write(Buffer source, long byteCount) throws IOException {
+                source.skip(byteCount);
+            }
+
+            public void flush() throws IOException {
+            }
+
+            public Timeout timeout() {
+                return Timeout.NONE;
+            }
+
+            public void close() throws IOException {
+            }
+        };
+    }
+
+    public static Source source(Socket socket) throws IOException {
+        if (socket == null) {
+            throw new IllegalArgumentException("socket == null");
+        } else if (socket.getInputStream() == null) {
+            throw new IOException("socket's input stream == null");
+        } else {
+            AsyncTimeout timeout = timeout(socket);
+            return timeout.source(source(socket.getInputStream(), timeout));
+        }
+    }
+
+    private static AsyncTimeout timeout(final Socket socket) {
+        return new AsyncTimeout() {
+            /* class okio.Okio.AnonymousClass4 */
+
+            /* access modifiers changed from: protected */
+            public IOException newTimeoutException(@Nullable IOException cause) {
+                InterruptedIOException ioe = new SocketTimeoutException("timeout");
+                if (cause != null) {
+                    ioe.initCause(cause);
+                }
+                return ioe;
+            }
+
+            /* JADX DEBUG: Failed to find minimal casts for resolve overloaded methods, cast all args instead
+             method: ClspMth{java.util.logging.Logger.log(java.util.logging.Level, java.lang.String, java.lang.Throwable):void}
+             arg types: [java.util.logging.Level, java.lang.String, java.lang.Exception]
+             candidates:
+              ClspMth{java.util.logging.Logger.log(java.util.logging.Level, java.lang.Throwable, java.util.function.Supplier<java.lang.String>):void}
+              ClspMth{java.util.logging.Logger.log(java.util.logging.Level, java.lang.String, java.lang.Object[]):void}
+              ClspMth{java.util.logging.Logger.log(java.util.logging.Level, java.lang.String, java.lang.Object):void}
+              ClspMth{java.util.logging.Logger.log(java.util.logging.Level, java.lang.String, java.lang.Throwable):void} */
+            /* JADX DEBUG: Failed to find minimal casts for resolve overloaded methods, cast all args instead
+             method: ClspMth{java.util.logging.Logger.log(java.util.logging.Level, java.lang.String, java.lang.Throwable):void}
+             arg types: [java.util.logging.Level, java.lang.String, java.lang.AssertionError]
+             candidates:
+              ClspMth{java.util.logging.Logger.log(java.util.logging.Level, java.lang.Throwable, java.util.function.Supplier<java.lang.String>):void}
+              ClspMth{java.util.logging.Logger.log(java.util.logging.Level, java.lang.String, java.lang.Object[]):void}
+              ClspMth{java.util.logging.Logger.log(java.util.logging.Level, java.lang.String, java.lang.Object):void}
+              ClspMth{java.util.logging.Logger.log(java.util.logging.Level, java.lang.String, java.lang.Throwable):void} */
+            /* access modifiers changed from: protected */
+            public void timedOut() {
+                try {
+                    socket.close();
+                } catch (Exception e) {
+                    Okio.logger.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e);
+                } catch (AssertionError e2) {
+                    if (Okio.isAndroidGetsocknameError(e2)) {
+                        Okio.logger.log(Level.WARNING, "Failed to close timed out socket " + socket, (Throwable) e2);
+                        return;
+                    }
+                    throw e2;
+                }
+            }
+        };
+    }
+
+    static boolean isAndroidGetsocknameError(AssertionError e) {
+        return (e.getCause() == null || e.getMessage() == null || !e.getMessage().contains("getsockname failed")) ? false : true;
+    }
+}

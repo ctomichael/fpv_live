@@ -1,0 +1,43 @@
+package dji.component.accountcenter;
+
+public interface IAccountCenter {
+    public static final String ACTION_CHECK_TOKEN = "actionCheckToken";
+    public static final String ACTION_FETCH_PROFILE_UPDATE = "actionFetchProfileUpdate";
+    public static final String ACTION_FINALIZE = "actionFinalize";
+    public static final String ACTION_GET_PROFILE = "actionGetProfile";
+    public static final String ACTION_HANDLE_TOKEN_INVALID = "actionHandleTokenInvalid";
+    public static final String ACTION_INIT = "actionInit";
+    public static final String ACTION_INIT_ACCOUNT = "actionInitAccount";
+    public static final String ACTION_LOGOUT = "actionLogout";
+    public static final String ACTION_LOGOUT_NO_WEB = "actionLogoutNoWeb";
+    public static final String ACTION_RETRIEVE_ACCOUNT = "actionRetrieveAccount";
+    public static final String ACTION_SYNC_PROFILE_INFO = "actionSyncProfileInfo";
+    public static final String ACTIVITY_EDIT_PROFILE = "activityEditProfile";
+    public static final String ACTIVITY_FORGET = "activityForget";
+    public static final String ACTIVITY_FORGET_SUCCESS = "activityForgetSuccess";
+    public static final String ACTIVITY_PARAM_INTENT = "activityParamIntent";
+    public static final String ACTIVITY_SIGN = "activitySign";
+    public static final String AVATAR_FILE = "avatarFile";
+    public static final String COMPONENT_NAME = "AccountCenter";
+    public static final String IS_PROFILE_GET = "isProfileGet";
+    public static final String PARAM_HANDLE_TOKEN_INVALID = "paramHandleTokenInvalid";
+    public static final String PARAM_INIT_ACCOUNT = "paramInitAccount";
+    public static final int SIGN_EXPLORE_LIKE_LOGIN_REQUEST_CODE = 3;
+    public static final String SIGN_KEY_CAN_BACK = "key_account_can_back";
+    public static final String SIGN_KEY_FROM_NFZ = "key_from_nfz";
+    public static final String SIGN_KEY_GOTO = "key_goto";
+    public static final String SIGN_KEY_GOTO_CLASS = "key_goto_class";
+    public static final String SIGN_KEY_REQUEST_CODE = "key_request_code";
+    public static final String SIGN_KEY_TYPE = "key_type";
+    public static final int SIGN_REQUEST_CODE_INVALIDATE_TOKEN = 1007;
+    public static final int SIGN_TYPE_GOTO_FLYRECORD = 1006;
+    public static final int SIGN_TYPE_GOTO_INTENT_CLASS = 1010;
+    public static final int SIGN_TYPE_GOTO_MINE_SETTING = 1008;
+    public static final int SIGN_TYPE_GOTO_NOWHERE = 1003;
+    public static final int SIGN_TYPE_GOTO_SET_RESULT = 1009;
+    public static final int SIGN_TYPE_GOTO_STORE = 1002;
+    public static final int SIGN_TYPE_GOTO_UPLOAD = 1005;
+    public static final int SIGN_TYPE_GOTO_VIDEOEDITOR = 1001;
+    public static final int SIGN_TYPE_GOTO_WEBVIEW = 1004;
+    public static final int SIGN_UPLOAD_LOGIN_REQUEST_CODE = 2;
+}

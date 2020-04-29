@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/region_item_rename" android:title="@string/offline_map_region_list_item_menu_rename"/>
+    <item android:id="@+id/region_item_delete" android:title="@string/offline_map_region_list_item_menu_delete"/>
+</menu>

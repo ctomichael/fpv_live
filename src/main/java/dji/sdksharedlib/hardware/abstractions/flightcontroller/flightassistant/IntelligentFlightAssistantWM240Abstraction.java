@@ -1,0 +1,4 @@
+package dji.sdksharedlib.hardware.abstractions.flightcontroller.flightassistant;
+
+public class IntelligentFlightAssistantWM240Abstraction extends IntelligentFlightAssistantWM230Abstraction {
+}
